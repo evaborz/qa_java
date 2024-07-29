@@ -3,11 +3,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mockito;
 
 import java.util.List;
 
-import static org.mockito.Mockito.when;
 
 @RunWith(Parameterized.class)
 public class AnimalParameterizedTest {
@@ -41,11 +39,9 @@ public class AnimalParameterizedTest {
 
     @Test
     public void getFamilyTest(){
-        Animal mockedAnimal = Mockito.mock(Animal.class);
         Animal animal = new Animal();
-        when(mockedAnimal.getFamily()).thenReturn("Существует несколько семейств: заячьи," +
+        Assert.assertEquals(animal.getFamily(), "Существует несколько семейств: заячьи," +
                 " беличьи, мышиные, кошачьи, псовые, медвежьи, куньи");
-        Assert.assertEquals(animal.getFamily(), mockedAnimal.getFamily());
     }
 }
 
